@@ -15,7 +15,7 @@ from naslib.search_spaces.darts.graph import DartsSearchSpace
 from naslib.predictors.zerocost import ZeroCost
 
 def main(args):
-    exp_name = "/adv_genetic_{:}_{:}_{:}_{:}_{:}".format('darts', args.dataset, args.metric1, args.metric2, datetime.now().strftime('%Y-%m-%d_%H-%M'))
+    exp_name = "/baseline_{:}_{:}_{:}_{:}_{:}".format('darts', args.dataset, args.metric1, args.metric2, datetime.now().strftime('%Y-%m-%d_%H-%M'))
 
     logger = setup_logger(args.log_path + exp_name + '.log')
     logger.setLevel(logging.INFO)
@@ -276,13 +276,13 @@ if __name__=='__main__':
     parser = argparse.ArgumentParser('')
 
     parser.add_argument('--dataset', type=str, help='Task to evaluate for in search space.')
-    parser.add_argument('--metric1', type=str, help='First predictor to use (should have better general correlation)')
-    parser.add_argument('--metric2', type=str, help='Second predictor to use (should have better top correlation)')
+    parser.add_argument('--metric1', type=str, help='First predictor to use (explorer)')
+    parser.add_argument('--metric2', type=str, help='Second predictor to use (discriminator)')
     
-    parser.add_argument('--pop_size', type=int, help='Number of architecture in the population.')
-    parser.add_argument('--n_generations', type=int, help='Number of generations (temperature updated at the end of generations)')
-    parser.add_argument('--steps_per_gen', type=int, help='Number of steps per generation. A new architecture may be generated via mutation at each step.')
-    parser.add_argument('--subset_size', type=int, help='Size of population subsets considered at each evolution step.')
+    parser.add_argument('--pop_size', type=int, default=25, help='Number of architecture in the population.')
+    parser.add_argument('--n_generations', type=int, default=30, help='Number of generations (temperature updated at the end of generations)')
+    parser.add_argument('--steps_per_gen', type=int, default=5, help='Number of steps per generation. A new architecture may be generated via mutation at each step.')
+    parser.add_argument('--subset_size', type=int, default=8, help='Size of population subsets considered at each evolution step.')
     parser.add_argument('--crossover', action='store_true', help='Wether to use crossover.')
     parser.add_argument('--failsafe_size', type=int, default=48, help='This affects the number of loops the algorithm makes before assuming it is stuck in a mutation loop.')
 
