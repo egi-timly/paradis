@@ -101,11 +101,11 @@ then
    then
       for dataset_base in ${tnb_datasets[@]}
       do
-       file=$dataset_base\_segment_semantic.tar
+       file=$dataset_base\_segmentsemantic.tar
        filepath=http://downloads.cs.stanford.edu/downloads/taskonomy_data/segment_semantic/$file
        echo $filepath
        cd $dataset_base
-       if [ -d "segment_semantic" ]
+       if [ -d "segmentsemantic" ]
        then
           echo segmentsemantic exists
        else
