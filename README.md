@@ -2,7 +2,7 @@
 
 <div align=justify>
 
-This is the official code repository for the <b>ParaDis</b> method and its associated paper <b>Insights from a Space- and Data- Agnostic Approach to Zero-Cost Proxies</b>.
+This is the official code repository for the <b>ParaDis</b> method and its associated paper [<b>Insights from a Space- and Data- Agnostic Approach to Zero-Cost Proxies</b>](https://openreview.net/pdf?id=sVWJczov4Q) <b>(TMLR 2026)</b>.
 
 ParaDis is a genetic-based zero-cost NAS framework which drives the search with Zero-Cost Proxies (ZCPs) by separating them into the explorer and discriminator roles. Specifically, we use a parameter-based discriminator and pair it with various SOTA ZCPs.
 
@@ -67,7 +67,7 @@ python3 paradis_darts.py --dataset <dataset> --metric1 <explorer> --crossover
 
 How to run the baselines on DARTS:
 ```bash
-python3 baseline.py --dataset <dataset> --metric1 <explorer> --metric2 <discriminator> --crossover
+python3 baseline_darts.py --dataset <dataset> --metric1 <explorer> --metric2 <discriminator> --crossover
 ```
 
 By default, all hyperparameters are the same as the paper's main experiments. These hyperparameters can be modified in the command line (see associated scripts for arguments).
